@@ -36,32 +36,22 @@ function showSlides() {
 // CONTACT FORM
 
 const form = document.getElementById('contact-form');
+const notificationElement = document.getElementById('notification');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+form.addEventListener('submit', function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
 
-  const nama = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const pilihan = document.getElementById('pilihan').value;
-  const pesan = document.getElementById('pesan').value;
+  const formData = new FormData(form);
+  console.log(formData);
 
-  if (nama === '' || email === '' || pilihan === '' || pesan === '') {
-    alert('Mohon isi semua field!');
-    return;
-  }
-
-  // VALIDASI EMAIL
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  if (!emailRegex.test(email)) {
-    alert('Email tidak valid!');
-    return;
-  }
-
-  // KIRIM FORM
-  console.log('Form berhasil dikirim!');
-  alert('Terima kasih telah mengisi form!');
-
-  // RESET FORM
+  // Reset the form
   form.reset();
-});
 
+  // Display a notification
+  notificationElement.style.display = 'block';
+  notificationElement.innerHTML = 'Form submitted successfully!';
+  setTimeout(function() {
+    notificationElement.style.display = 'none';
+  }, 3000); // Hide the notification after 3 seconds
+});

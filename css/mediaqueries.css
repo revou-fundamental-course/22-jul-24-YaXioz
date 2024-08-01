@@ -1,0 +1,20 @@
+@media screen and (max-width: 1200px) {
+    #desktop-nav {
+        display: none;
+    }
+    #hamburger-nav {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-title {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .banner-title {
+      display: none;
+    }
+  }
